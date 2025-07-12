@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Para Ti, Mi Amor</title>
+  <style>
+    body {
+      background: linear-gradient(to right, #ffe4e1, #fff0f5);
+      font-family: 'Segoe UI', sans-serif;
+      text-align: center;
+      padding: 50px;
+      color: #444;
+    }
+
+    h1 {
+      font-size: 3em;
+      color: #d63384;
+    }
+
+    .frase {
+      font-size: 1.5em;
+      margin-top: 20px;
+      color: #6f42c1;
+    }
+
+    .servicios {
+      margin-top: 40px;
+    }
+
+    .servicio {
+      background-color: #fff;
+      border-radius: 15px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      margin: 15px auto;
+      padding: 20px;
+      width: 300px;
+      font-size: 1.1em;
+    }
+
+    .servicio span {
+      font-size: 1.5em;
+    }
+
+    button {
+      margin-top: 50px;
+      padding: 15px 30px;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.1em;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    button:hover {
+      background-color: #ff85c1;
+    }
+
+    .galeria {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 15px;
+      margin: 30px auto;
+      max-width: 600px;
+    }
+
+    .galeria img {
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      cursor: pointer;
+      transition: transform 0.3s;
+    }
+
+    .galeria img:hover {
+      transform: scale(1.05);
+    }
+
+    /* Modal general */
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 999;
+      left: 0; top: 0;
+      width: 100%; height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal-content {
+      background: white;
+      padding: 30px;
+      border-radius: 20px;
+      max-width: 600px;
+      text-align: left;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      position: relative;
+    }
+
+    .modal-content img {
+      max-width: 100%;
+      border-radius: 15px;
+    }
+
+    .close {
+      position: absolute;
+      top: 10px;
+      right: 20px;
+      font-size: 25px;
+      font-weight: bold;
+      color: #888;
+      cursor: pointer;
+    }
+
+    .close:hover {
+      color: #000;
+    }
+.corazones {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.corazon {
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #ff4da6;
+  transform: rotate(45deg);
+  opacity: 0.8;
+  animation: flotar 10s linear infinite;
+}
+
+.corazon::before,
+.corazon::after {
+  content: "";
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  background-color: #ff4da6;
+  border-radius: 50%;
+}
+
+.corazon::before {
+  top: -15px;
+  left: 0;
+}
+
+.corazon::after {
+  left: -15px;
+  top: 0;
+}
+
+@keyframes flotar {
+  0% {
+    transform: translateY(100vh) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-20vh) rotate(45deg);
+    opacity: 0;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <h1>Para la Reina de las Uñas 💅</h1>
+  <p class="frase">“Así como embelleces a las personas, tú embelleces mi vida.”</p>
+
+  <div class="servicios">
+    <div class="servicio"><span>💅</span> Manicura → me acaricias el alma</div>
+    <div class="servicio"><span>💇‍♀️</span> Cabello → me despeinas la rutina</div>
+    <div class="servicio"><span>👁️</span> Cejas → levantas mis ánimos</div>
+    <div class="servicio"><span>💄</span> Maquillaje → iluminas mis días</div>
+    <div class="servicio"><span>🦶</span> Pedicura → suavizas mis pasos contigo</div>
+  </div>
+
+  <!-- Botón para abrir carta -->
+  <button onclick="abrirModal('modalCarta')">Tengo algo más que decirte...</button>
+
+  <!-- Galería -->
+  <h2 style="margin-top: 60px; color: #d63384;">Unas memorias hermosas contigo</h2>
+  <div class="galeria">
+    <img src="1.jpg" alt="foto1" onclick="abrirImagen('1.jpg')">
+    <img src="2.jpg" alt="foto2" onclick="abrirImagen('2.jpg')">
+    <img src="3.jpg" alt="foto3" onclick="abrirImagen('3.jpg')">
+    <img src="4.jpg" alt="foto4" onclick="abrirImagen('4.jpg')">
+    <img src="5.jpg" alt="foto5" onclick="abrirImagen('5.jpg')">
+    <img src="6.jpg" alt="foto6" onclick="abrirImagen('6.jpg')">
+    <img src="7.jpg" alt="foto7" onclick="abrirImagen('7.jpg')">
+  </div>
+
+  <!-- Modal Carta -->
+  <div id="modalCarta" class="modal" onclick="cerrarModal(event, 'modalCarta')">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModalManual('modalCarta')">&times;</span>
+      <h3>💌 Mi amor:</h3>
+      <p style="font-size: 1.1em;">
+        Gracias por ser esa persona increíble que transforma el mundo con su arte. Tu sonrisa es mi motor, tus manos son magia, y cada momento contigo es un regalo.  
+        <br><br>
+        Así como embelleces a todos, tú me haces mejor a mí. Te admiro, te respeto y te quiero más de lo que las palabras pueden decir.
+        <br><br>
+        — Tu programador enamorado ❤️
+      </p>
+    </div>
+  </div>
+
+  <!-- Modal Imagen -->
+  <div id="modalImagen" class="modal" onclick="cerrarModal(event, 'modalImagen')">
+    <div class="modal-content">
+      <span class="close" onclick="cerrarModalManual('modalImagen')">&times;</span>
+      <img id="imagenGrande" src="" alt="Imagen Ampliada">
+    </div>
+  </div>
+
+  <!-- Contenedor de corazones flotando -->
+<div class="corazones" id="corazones"></div>
+
+  <script>
+    function abrirModal(id) {
+      document.getElementById(id).style.display = 'flex';
+    }
+
+    function cerrarModal(event, id) {
+      if (event.target.classList.contains('modal')) {
+        document.getElementById(id).style.display = 'none';
+      }
+    }
+
+    function cerrarModalManual(id) {
+      document.getElementById(id).style.display = 'none';
+    }
+
+    function abrirImagen(src) {
+      document.getElementById('imagenGrande').src = src;
+      abrirModal('modalImagen');
+    }
+
+     function generarCorazones() {
+    const contenedor = document.getElementById('corazones');
+    for (let i = 0; i < 20; i++) {
+      const corazon = document.createElement('div');
+      corazon.classList.add('corazon');
+      corazon.style.left = Math.random() * 100 + "vw";
+      corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
+      corazon.style.opacity = Math.random();
+      corazon.style.transform = `scale(${0.5 + Math.random()}) rotate(45deg)`;
+      contenedor.appendChild(corazon);
+
+      // Eliminar corazones después de animarse
+      setTimeout(() => {
+        corazon.remove();
+      }, 10000);
+    }
+  }
+
+  // Generar cada cierto tiempo
+  setInterval(generarCorazones, 1000);
+  generarCorazones(); // inicial
+  </script>
+
+</body>
+</html>
