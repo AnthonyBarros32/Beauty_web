@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
   <title>Para Ti, Mi Amor</title>
   <style>
@@ -247,7 +248,7 @@
 
      function generarCorazones() {
     const contenedor = document.getElementById('corazones');
-    for (let i = 0; i < 20; i++) {
+    for (let i = 0; i < 3; i++) {
       const corazon = document.createElement('div');
       corazon.classList.add('corazon');
       corazon.style.left = Math.random() * 100 + "vw";
@@ -264,7 +265,7 @@
   }
 
   // Generar cada cierto tiempo
-  setInterval(generarCorazones, 1000);
+  setInterval(generarCorazones, 3000);
   generarCorazones(); // inicial
   </script>
 
