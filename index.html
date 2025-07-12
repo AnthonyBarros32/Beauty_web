@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta charset="UTF-8">
@@ -29,17 +30,26 @@
     }
 
     .servicio {
-      background-color: #fff;
-      border-radius: 15px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      margin: 15px auto;
-      padding: 20px;
-      width: 300px;
+      background: white;
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      margin: 20px auto;
+      width: 90%;
+      max-width: 350px;
+      transition: transform 0.3s, box-shadow 0.3s;
       font-size: 1.1em;
     }
 
+    .servicio:hover {
+      transform: translateY(-8px) scale(1.02);
+      box-shadow: 0 12px 25px rgba(0, 0, 0, 0.2);
+      background-color: #fff0f5;
+    }
+
     .servicio span {
-      font-size: 1.5em;
+      display: inline-block;
+      animation: latido 1.5s infinite;
     }
 
     button {
@@ -69,7 +79,7 @@
     .galeria img {
       width: 100%;
       border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
       cursor: pointer;
       transition: transform 0.3s;
     }
@@ -83,9 +93,11 @@
       display: none;
       position: fixed;
       z-index: 999;
-      left: 0; top: 0;
-      width: 100%; height: 100%;
-      background-color: rgba(0,0,0,0.5);
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
       justify-content: center;
       align-items: center;
     }
@@ -96,7 +108,7 @@
       border-radius: 20px;
       max-width: 600px;
       text-align: left;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
       position: relative;
     }
 
@@ -118,71 +130,72 @@
     .close:hover {
       color: #000;
     }
-.corazones {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-  overflow: hidden;
-  z-index: 0;
-}
 
-.corazon {
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: #ff4da6;
-  transform: rotate(45deg);
-  opacity: 0.8;
-  animation: flotar 10s linear infinite;
-}
+    .mariposas {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      overflow: hidden;
+      z-index: 0;
+    }
 
-.corazon::before,
-.corazon::after {
-  content: "";
-  position: absolute;
-  width: 30px;
-  height: 30px;
-  background-color: #ff4da6;
-  border-radius: 50%;
-}
+    .mariposa {
+      position: absolute;
+      font-size: 24px;
+      animation: volar 10s linear infinite;
+      opacity: 0.8;
+    }
 
-.corazon::before {
-  top: -15px;
-  left: 0;
-}
+    @keyframes volar {
+      0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 1;
+      }
 
-.corazon::after {
-  left: -15px;
-  top: 0;
-}
+      100% {
+        transform: translateY(-20vh) rotate(360deg);
+        opacity: 0;
+      }
+    }
 
-@keyframes flotar {
-  0% {
-    transform: translateY(100vh) rotate(45deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translateY(-20vh) rotate(45deg);
-    opacity: 0;
-  }
-}
+    @keyframes latido {
 
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.3);
+      }
+    }
   </style>
 </head>
+<div class="mariposas" id="mariposas"></div>
+
 <body>
 
   <h1>Para la Reina de las Uñas 💅</h1>
   <p class="frase">“Así como embelleces a las personas, tú embelleces mi vida.”</p>
 
   <div class="servicios">
-    <div class="servicio"><span>💅</span> Manicura → me acaricias el alma</div>
-    <div class="servicio"><span>💇‍♀️</span> Cabello → me despeinas la rutina</div>
-    <div class="servicio"><span>👁️</span> Cejas → levantas mis ánimos</div>
-    <div class="servicio"><span>💄</span> Maquillaje → iluminas mis días</div>
-    <div class="servicio"><span>🦶</span> Pedicura → suavizas mis pasos contigo</div>
+    <div class="servicio"><span>💅</span> Cuando haces una manicura, no solo embelleces uñas, me recuerdas que tus manos
+      son arte... y también abrigo.</div>
+
+    <div class="servicio"><span>💇‍♀️</span> Cuando tocas el cabello de alguien, siento que también desenredas mi mente,
+      mis días, y me dejas en paz solo con tu presencia.</div>
+
+    <div class="servicio"><span>👁️</span> Al diseñar cejas, le devuelves expresión a los rostros... pero a mí, me
+      devuelves la mirada cuando siento que pierdo el rumbo.</div>
+
+    <div class="servicio"><span>💄</span> Con cada trazo de maquillaje, embelleces rostros… pero a mí me pintas sonrisas
+      que ni yo sabía que tenía guardadas.</div>
+
+    <div class="servicio"><span>🦶</span> Cuando haces pedicura, das descanso a los pies… y a mí, me haces caminar más
+      ligero solo por saber que existes.</div>
   </div>
 
   <!-- Botón para abrir carta -->
@@ -205,15 +218,45 @@
     <div class="modal-content">
       <span class="close" onclick="cerrarModalManual('modalCarta')">&times;</span>
       <h3>💌 Mi amor:</h3>
+      <p style="font-size: 1em; line-height: 1.6;">
+        A veces pienso que no solo trabajas con belleza... tú misma la creas.
+        Cada vez que tocas unas manos, unas cejas o un cabello, siento que estás tocando el mundo con delicadeza, como
+        solo tú sabes hacerlo.
+
+        <br> <br>
+        Pero lo más mágico de todo es que, mientras tú transformas a otros por fuera, tú me transformas a mí por dentro.
+        Tu risa es mi calma, tu voz es mi hogar, y tu esfuerzo me inspira más que mil libros.
+
+        <br> <br>
+        Te admiro profundamente, no solo por lo que haces, sino por quién eres.
+        Y si pudiera pedir un solo servicio tuyo... sería que nunca dejes de tocar mi vida con tu ternura.
+
+        <br> <br>
+        Con el corazón en la mano y el alma en tus manos, con amor infinito.
+        Y Con la emoción de saber que en unos días dejarás de ser videollamada para volverte abrazos,
+        <br>
+        — Tu programador enamorado de cada detalle tuyo 💗
+      </p>
+
+      <div style="text-align: center; margin-top: 20px;">
+        <button onclick="agendarCita()"
+          style="padding: 12px 24px; border: none; background-color: #ff69b4; color: white; border-radius: 25px; font-size: 1em; cursor: pointer;">Agendar
+          cita contigo 💖</button>
+      </div>
+    </div>
+  </div>
+  <div id="modalConfirmacion" class="modal" onclick="cerrarModal(event, 'modalConfirmacion')">
+    <div class="modal-content" style="text-align: center;">
+      <span class="close" onclick="cerrarModalManual('modalConfirmacion')">&times;</span>
+      <h3>📅 ¡Cita agendada!</h3>
       <p style="font-size: 1.1em;">
-        Gracias por ser esa persona increíble que transforma el mundo con su arte. Tu sonrisa es mi motor, tus manos son magia, y cada momento contigo es un regalo.  
+        Nos vemos este viernes… y esta vez no será por videollamada.
         <br><br>
-        Así como embelleces a todos, tú me haces mejor a mí. Te admiro, te respeto y te quiero más de lo que las palabras pueden decir.
-        <br><br>
-        — Tu programador enamorado ❤️
+        Estoy contando las horas para verte, abrazarte, y decirte en persona cuánto te AMO. 💘
       </p>
     </div>
   </div>
+
 
   <!-- Modal Imagen -->
   <div id="modalImagen" class="modal" onclick="cerrarModal(event, 'modalImagen')">
@@ -224,7 +267,7 @@
   </div>
 
   <!-- Contenedor de corazones flotando -->
-<div class="corazones" id="corazones"></div>
+  <div class="corazones" id="corazones"></div>
 
   <script>
     function abrirModal(id) {
@@ -246,27 +289,63 @@
       abrirModal('modalImagen');
     }
 
-     function generarCorazones() {
-    const contenedor = document.getElementById('corazones');
-    for (let i = 0; i < 3; i++) {
-      const corazon = document.createElement('div');
-      corazon.classList.add('corazon');
-      corazon.style.left = Math.random() * 100 + "vw";
-      corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
-      corazon.style.opacity = Math.random();
-      corazon.style.transform = `scale(${0.5 + Math.random()}) rotate(45deg)`;
-      contenedor.appendChild(corazon);
+    //    function generarCorazones() {
+    //   const contenedor = document.getElementById('corazones');
+    //   for (let i = 0; i < 3; i++) {
+    //     const corazon = document.createElement('div');
+    //     corazon.classList.add('corazon');
+    //     corazon.style.left = Math.random() * 100 + "vw";
+    //     corazon.style.animationDuration = (5 + Math.random() * 5) + "s";
+    //     corazon.style.opacity = Math.random();
+    //     corazon.style.transform = `scale(${0.5 + Math.random()}) rotate(45deg)`;
+    //     contenedor.appendChild(corazon);
 
-      // Eliminar corazones después de animarse
+    //     // Eliminar corazones después de animarse
+    //     setTimeout(() => {
+    //       corazon.remove();
+    //     }, 10000);
+    //   }
+    // }
+
+    // Generar cada cierto tiempo
+    // setInterval(generarCorazones, 3000);
+    // generarCorazones(); // inicial
+
+    function agendarCita() {
+      // Cierra el modal de la carta
+      document.getElementById('modalCarta').style.display = 'none';
+
+      // Abre el modal de confirmación
       setTimeout(() => {
-        corazon.remove();
-      }, 10000);
+        document.getElementById('modalConfirmacion').style.display = 'flex';
+      }, 500); // pequeña pausa para que se sienta más suave
     }
-  }
 
-  // Generar cada cierto tiempo
-  setInterval(generarCorazones, 3000);
-  generarCorazones(); // inicial
+    function generarMariposas() {
+      const contenedor = document.getElementById('mariposas');
+
+      for (let i = 0; i < 3; i++) {
+        const mariposa = document.createElement('div');
+        mariposa.classList.add('mariposa');
+
+        // Usamos emojis de mariposa (puedes variar colores si quieres)
+        mariposa.innerText = "🦋";
+
+        mariposa.style.left = 40 + Math.random() * 20 + "vw"; // centradas
+        mariposa.style.animationDuration = (8 + Math.random() * 4) + "s";
+        mariposa.style.opacity = 0.5 + Math.random() * 0.4;
+        mariposa.style.fontSize = (20 + Math.random() * 20) + "px";
+
+        contenedor.appendChild(mariposa);
+
+        // Eliminar luego
+        setTimeout(() => mariposa.remove(), 15000);
+      }
+    }
+
+    setInterval(generarMariposas, 3000);
+    generarMariposas();
+
   </script>
 
 </body>
